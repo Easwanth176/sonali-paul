@@ -3,8 +3,6 @@
 import { site } from "@/lib/site-data";
 import { Mail, Phone } from "lucide-react";
 import { useState } from "react";
-import { SectionHeading } from "./ui";
-
 export function Contact() {
   const [copied, setCopied] = useState(false);
 

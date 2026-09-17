@@ -28,17 +28,16 @@ export function SectionHeading({
   title: string;
   subtitle?: string;
 }) {
-  const parts = title.split(".");
-  const hasDot = title.includes(".");
+  const dotIndex = title.lastIndexOf(".");
 
   return (
     <div id={id} style={{ scrollMarginTop: 96 }}>
       <h2 className="section-title">
-        {hasDot ? (
+        {dotIndex >= 0 ? (
           <>
-            {parts[0]}
+            {title.slice(0, dotIndex)}
             <span className="dot">.</span>
-            {parts.slice(1).join(".")}
+            {title.slice(dotIndex + 1)}
           </>
         ) : (
           title

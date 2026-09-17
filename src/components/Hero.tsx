@@ -270,13 +270,12 @@ export function Hero() {
             </div>
 
             {site.heroChips.map((chip, i) => {
-              const positions = [
-                { top: 55, left: -25, rotate: -6 },
-                { top: 80, right: -25, rotate: 6 },
-                { bottom: 135, left: -28, rotate: 4 },
-                { bottom: 125, right: -32, rotate: -4 },
-              ] as const;
-              const pos = positions[i];
+              const positions: React.CSSProperties[] = [
+                { top: 55, left: -25, transform: "rotate(-6deg)" },
+                { top: 80, right: -25, transform: "rotate(6deg)" },
+                { bottom: 135, left: -28, transform: "rotate(4deg)" },
+                { bottom: 125, right: -32, transform: "rotate(-4deg)" },
+              ];
               return (
                 <div
                   key={chip.label}
@@ -284,11 +283,7 @@ export function Hero() {
                   style={{
                     position: "absolute",
                     zIndex: 15,
-                    transform: `rotate(${pos.rotate}deg)`,
-                    ...(pos.top !== undefined && { top: pos.top }),
-                    ...(pos.bottom !== undefined && { bottom: pos.bottom }),
-                    ...(pos.left !== undefined && { left: pos.left }),
-                    ...(pos.right !== undefined && { right: pos.right }),
+                    ...positions[i],
                   }}
                 >
                   <span>{chip.emoji}</span>

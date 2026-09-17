@@ -219,8 +219,8 @@ export function Hero() {
                   alt={site.name}
                   fill
                   priority
-                  sizes="(max-width: 640px) 80vw, 320px"
-                  style={{ objectFit: "cover", objectPosition: "center 12%" }}
+                  sizes="(max-width: 720px) 90vw, 320px"
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
                 />
               </div>
             </div>

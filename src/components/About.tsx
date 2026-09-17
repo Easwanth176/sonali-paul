@@ -68,7 +68,7 @@ export function About() {
             <div
               style={{
                 position: "relative",
-                aspectRatio: "4 / 5",
+                aspectRatio: "1 / 1",
                 width: "100%",
                 background: "var(--bg-card-subtle)",
               }}
@@ -78,7 +78,7 @@ export function About() {
                 alt={site.name}
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
-                style={{ objectFit: "cover", objectPosition: "center 15%" }}
+                style={{ objectFit: "cover", objectPosition: "center top" }}
               />
             </div>
             <div style={{ padding: 24 }}>

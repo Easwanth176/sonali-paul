@@ -211,86 +211,29 @@ export function Hero() {
             </div>
           </div>
 
-          <div
-            className="hero-portrait-stage"
-            style={{
-              position: "relative",
-              width: 360,
-              height: 440,
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <div
-              className="hero-arch-backdrop"
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: 340,
-                height: 240,
-                borderRadius: "170px 170px 24px 24px",
-                background: "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)",
-                zIndex: 1,
-                pointerEvents: "none",
-                boxShadow: "0 10px 30px rgba(251, 146, 60, 0.25)",
-              }}
-            />
-            <div
-              className="hero-person-wrapper"
-              style={{
-                position: "relative",
-                zIndex: 2,
-                width: 330,
-                height: 430,
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                src={site.photo}
-                alt={site.name}
-                width={330}
-                height={430}
-                priority
-                style={{
-                  width: "auto",
-                  height: "100%",
-                  maxHeight: 430,
-                  objectFit: "cover",
-                  objectPosition: "bottom center",
-                  borderRadius: "24px 24px 0 0",
-                  filter: "drop-shadow(0 10px 22px rgba(0, 0, 0, 0.14))",
-                }}
-              />
+          <div className="hero-portrait-stage">
+            <div className="hero-arch-frame">
+              <div className="hero-arch-inner">
+                <Image
+                  src={site.photo}
+                  alt={site.name}
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 80vw, 320px"
+                  style={{ objectFit: "cover", objectPosition: "center 12%" }}
+                />
+              </div>
             </div>
 
-            {site.heroChips.map((chip, i) => {
-              const positions: React.CSSProperties[] = [
-                { top: 55, left: -25, transform: "rotate(-6deg)" },
-                { top: 80, right: -25, transform: "rotate(6deg)" },
-                { bottom: 135, left: -28, transform: "rotate(4deg)" },
-                { bottom: 125, right: -32, transform: "rotate(-4deg)" },
-              ];
-              return (
-                <div
-                  key={chip.label}
-                  className="sticker-pill dark"
-                  style={{
-                    position: "absolute",
-                    zIndex: 15,
-                    ...positions[i],
-                  }}
-                >
-                  <span>{chip.emoji}</span>
-                  <span>{chip.label}</span>
-                </div>
-              );
-            })}
+            {site.heroChips.map((chip, i) => (
+              <div
+                key={chip.label}
+                className={`sticker-pill dark hero-sticker hero-sticker-${i + 1}`}
+              >
+                <span>{chip.emoji}</span>
+                <span>{chip.label}</span>
+              </div>
+            ))}
 
             <div
               style={{
@@ -343,6 +286,15 @@ export function Hero() {
                 Hire me
               </a>
             </div>
+          </div>
+
+          <div className="hero-chip-row">
+            {site.heroChips.map((chip) => (
+              <span key={chip.label} className="sticker-pill dark">
+                <span>{chip.emoji}</span>
+                <span>{chip.label}</span>
+              </span>
+            ))}
           </div>
 
           <div

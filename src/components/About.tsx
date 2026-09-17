@@ -61,13 +61,24 @@ export function About() {
             </p>
           </div>
 
-          <div className="editorial-card" style={{ padding: 0, overflow: "hidden" }}>
-            <div style={{ position: "relative", height: 280 }}>
+          <div
+            className="editorial-card"
+            style={{ padding: 0, overflow: "hidden", alignSelf: "start" }}
+          >
+            <div
+              style={{
+                position: "relative",
+                aspectRatio: "4 / 5",
+                width: "100%",
+                background: "var(--bg-card-subtle)",
+              }}
+            >
               <Image
                 src={site.photo}
                 alt={site.name}
                 fill
-                style={{ objectFit: "cover" }}
+                sizes="(max-width: 1024px) 100vw, 420px"
+                style={{ objectFit: "cover", objectPosition: "center 15%" }}
               />
             </div>
             <div style={{ padding: 24 }}>
